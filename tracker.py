@@ -15,7 +15,7 @@ def get_crypto_prices():
         result[i] = {
             "coin": i,
             "priceUSD": crypto_data[i]["USD"]["PRICE"],
-            "priceBGN": crypto_data[i]["INR"]["PRICE"],
+            "priceINR": crypto_data[i]["INR"]["PRICE"],
             "change_day": crypto_data[i]["USD"]["CHANGEPCT24HOUR"],
             "change_hour": crypto_data[i]["USD"]["CHANGEPCTHOUR"]
         }
