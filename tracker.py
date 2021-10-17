@@ -8,14 +8,14 @@ def read_coins():
 def get_crypto_prices():
     coins = read_coins()
 
-    crypto_data = requests.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms={}&tsyms=USD,BGN".format(",".join(coins))).json()["RAW"]
+    crypto_data = requests.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms={}&tsyms=USD,INR".format(",".join(coins))).json()["RAW"]
 
     result = {}
     for i in crypto_data:
         result[i] = {
             "coin": i,
             "priceUSD": crypto_data[i]["USD"]["PRICE"],
-            "priceBGN": crypto_data[i]["BGN"]["PRICE"],
+            "priceBGN": crypto_data[i]["INR"]["PRICE"],
             "change_day": crypto_data[i]["USD"]["CHANGEPCT24HOUR"],
             "change_hour": crypto_data[i]["USD"]["CHANGEPCTHOUR"]
         }
