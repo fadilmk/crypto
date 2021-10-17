@@ -25,10 +25,10 @@ def track(update, context):
     for i in crypto_data:
         coin = crypto_data[i]["coin"]
         priceUSD = crypto_data[i]["priceUSD"]
-        priceBGN = crypto_data[i]["priceBGN"]
+        priceINR = crypto_data[i]["priceINR"]
         change_day = crypto_data[i]["change_day"]
         change_hour = crypto_data[i]["change_hour"]
-        message += f"Coin: {coin}\nPrices: \n\t {priceBGN:,.2f} BGN, \n\t ${priceUSD:,.2f}\nHour Change: {change_hour:.3f}%\nDay Change: {change_day:.3f}%\n\n"
+        message += f"Coin: {coin}\nPrices: \n\t {priceINR:,.2f} INR, \n\t ${priceUSD:,.2f}\nHour Change: {change_hour:.3f}%\nDay Change: {change_day:.3f}%\n\n"
 
     context.bot.send_message(chat_id=chat_id, text=message)
 
