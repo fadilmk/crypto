@@ -1,0 +1,38 @@
+{
+    "name": "crypto price bot",
+    "description": "crypto price alert bot to know the price of crypto coins",
+    "keywords": ["telegram", "crypto", "bitcoin", "price", "bot", "open", "source"],
+    "logo": "https://ibb.co/m6f2XsC",
+    "website": "https://github.com/fadilmk/cryptobot",
+    "repository": "https://github.com/fadilmk/cryptobot",
+    "env": {
+          "APP_ID": {"description": "Get this value from https://my.telegram.org", "required": true},
+          "API_HASH": {"description": "Get this value from https://my.telegram.org" , "required": true},
+          "TG_BOT_TOKEN": {"description": "Get Bot Token From @BotFather Bot", "required": true},
+          "AUTH_USERS": {"description": "List of Authorized user ids separated by space", "required":  false},
+          "SUDO_USERS": {"description": "List of super user ids for broadcast. separated by space", "required":  true},
+          "ENV": {"description": "Set this to ANYTHING","value": "ANYTHING"}
+    },
+    "addons": [
+      {
+      "plan": "heroku-postgresql",
+        "options": {
+          "version": "12"
+        }
+      }
+    ],
+    "buildpacks": [
+      {
+        "url": "heroku/python"
+      },
+      {
+        "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+      }
+    ],
+    "formation": {
+      "worker": {
+        "quantity": 1,
+        "size": "free"
+      }
+    }
+  }
